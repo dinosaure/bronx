@@ -1,0 +1,31 @@
+# OASIS_START
+# DO NOT EDIT (digest: 8652cd59291bd10d479792039f3b7fa1)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library lbronx
+"lib/lbronx.cmxs": use_lbronx
+<lib/*.ml{,i}>: package(batteries)
+# Executable bronx
+"src/main.byte": package(batteries)
+"src/main.byte": package(cohttp.lwt)
+"src/main.byte": package(lwt)
+"src/main.byte": use_lbronx
+<src/*.ml{,i}>: package(batteries)
+<src/*.ml{,i}>: package(cohttp.lwt)
+<src/*.ml{,i}>: package(lwt)
+<src/*.ml{,i}>: use_lbronx
+# OASIS_STOP
+
+<lib/*.mly>: package(batteries)
+true: use_menhir

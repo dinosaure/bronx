@@ -1,0 +1,25 @@
+OASISFormat: 0.4
+Name:        Bronx
+Version:     0.1
+Synopsis:    Lol
+Authors:     Romain Calascibetta
+License:     MIT
+Plugins:     DevFiles (0.4)
+OcamlVersion:>= 3.12.1
+
+Library lbronx
+  BuildDepends:
+    batteries (>= 2.0)
+  Path:       lib
+  BuildTools: ocamlbuild
+  Modules:    Expr
+
+Executable bronx
+  BuildDepends:
+    lbronx,
+    batteries (>= 2.0),
+    lwt (>= 2.4),
+    cohttp.lwt (>= 0.10)
+  Path:       src
+  BuildTools: ocamlbuild
+  MainIs:     main.ml
